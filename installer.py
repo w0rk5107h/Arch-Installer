@@ -8,7 +8,7 @@ TASKS = ['welcome', 'setKeyMap']
 TASK = 0
 
 def quit(stdscr):
-    pass
+    exit()
 
 # welcome screen
 def welcome(stdscr):
