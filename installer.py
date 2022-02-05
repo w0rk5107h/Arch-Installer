@@ -20,7 +20,7 @@ def welcome(stdscr):
     stdscr.refresh()
     while True:
         key = stdscr.getkey()
-        if key == 'KEY_ENTER':
+        if key == curses.KEY_ENTER:
             TASK += 1
             break
         elif key.lower() == 'q':
@@ -38,7 +38,7 @@ def setKeyMap(stdscr):
     stdscr.refresh()
     while True:
         key = stdscr.getkey()
-        if key == 'KEY_ENTER':
+        if key == curses.KEY_ENTER:
             TASK += 1
             break
         elif key.lower() == 'c':
@@ -60,7 +60,7 @@ def setKeyMap(stdscr):
                     key = stdscr.getkey()
                     if key.lower() == 'c':
                         break
-                    elif key == 'KEY_ENTER':
+                    elif key == curses.KEY_ENTER:
                         if index.isdigit():
                             index = int(index)
                             if index >= 1 and index <= len(keyMaps)+1:
