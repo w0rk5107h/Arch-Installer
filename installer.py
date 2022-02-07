@@ -94,8 +94,7 @@ def main(stdscr):
             welcome(stdscr)
         elif TASKS[TASK] == 'setKeyMap':
             setKeyMap(stdscr)
-        elif TASK == len(TASKS):
-            break
-    stdscr.getch()
+        if TASK == len(TASKS):
+            quit(stdscr)
 
 wrapper(main)
