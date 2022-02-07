@@ -8,7 +8,7 @@ TASKS = ['welcome', 'setKeyMap']
 TASK = 0
 
 def quit(stdscr):
-    exit()
+    exit(0)
 
 # welcome screen
 def welcome(stdscr):
@@ -20,11 +20,11 @@ def welcome(stdscr):
     stdscr.refresh()
     while True:
         key = stdscr.getkey()
-        if key == curses.KEY_ENTER:
+        if key == '\n':
             TASK += 1
             break
         elif key.lower() == 'q':
-            quit()
+            quit(stdscr)
             break
 
 # key map settings
@@ -38,7 +38,7 @@ def setKeyMap(stdscr):
     stdscr.refresh()
     while True:
         key = stdscr.getkey()
-        if key == curses.KEY_ENTER:
+        if key == '\n':
             TASK += 1
             break
         elif key.lower() == 'c':
@@ -60,7 +60,7 @@ def setKeyMap(stdscr):
                     key = stdscr.getkey()
                     if key.lower() == 'c':
                         break
-                    elif key == curses.KEY_ENTER:
+                    elif key == '\n':
                         if index.isdigit():
                             index = int(index)
                             if index >= 1 and index <= len(keyMaps)+1:
