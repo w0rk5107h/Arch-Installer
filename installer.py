@@ -32,7 +32,7 @@ def setKeyMap(stdscr):
     global TASK
     global TASKS
 
-    keyMap = check_output("localectl status | awk -F ':' '{print $2}' | head -n 1").decode().strip()
+    keyMap = check_output("localectl status | awk -F ':' '{print $2}' | head -n 1", shell=True).decode().strip()
     stdscr.clear()
     stdscr.addstr(helperText.setKeyMapMessage.replace('##keyMap##', keyMap))
     stdscr.refresh()
@@ -78,9 +78,11 @@ def setKeyMap(stdscr):
             system(f'loadkeys {keyMaps[index-1]}')
             TASK += 1
             break
-        elif key.lower() == 'KEY_BACKSPACE':
+        elif key == 'KEY_BACKSPACE':
             TASK -= 1
             break
+        elif key.lower() == 'q':
+            quit(stdscr)
 
 def main(stdscr):
     global TASK
@@ -92,7 +94,7 @@ def main(stdscr):
             welcome(stdscr)
         elif TASKS[TASK] == 'setKeyMap':
             setKeyMap(stdscr)
-        elif TASK > len(TASKS):
+        elif TASK == len(TASKS):
             break
     stdscr.getch()
 

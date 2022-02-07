@@ -28,7 +28,8 @@ Press:
 
 -> Enter to continue
 -> c to change keymap
--> Backspace to go back'''
+-> Backspace to go back
+-> q to quit'''
 
 keyMapFileMessage = '''
     _   _ _   _  __           __  __              
